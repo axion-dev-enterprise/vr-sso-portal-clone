@@ -2,10 +2,10 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "VR Benefícios SSO - Gestão de Pessoas & UI Template AXION",
-  description: "Portal SSO unificado para Trabalhadores, Empresas (RH) e Estabelecimentos Credenciados. Reconstrução de alta fidelidade para portfólio e ecossistema AXION.",
+  title: "VR - facilita a vida",
+  description: "Acesso VR - SuperPortal VR",
   icons: {
-    icon: "/favicon.ico",
+    icon: "https://sso-acesso.vr.com.br/sites/default/files/favicon.ico",
   },
 };
 
@@ -16,7 +16,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
-      <body className="antialiased selection:bg-emerald-500 selection:text-slate-950">
+      <body className="antialiased selection:bg-[#00b11d] selection:text-white">
         {children}
       </body>
     </html>
