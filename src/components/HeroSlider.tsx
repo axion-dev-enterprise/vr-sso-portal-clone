@@ -10,22 +10,17 @@ import {
   ChevronRight, 
   Zap, 
   ShieldCheck, 
-  Sparkles,
   ArrowUpRight,
-  TrendingDown,
-  Building,
   CreditCard,
   QrCode
 } from 'lucide-react';
 
 interface HeroSliderProps {
-  currentBrand: 'vr' | 'axion';
   onOpenAuth: (role: 'trabalhador' | 'empresa' | 'estabelecimento') => void;
 }
 
-export const HeroSlider: React.FC<HeroSliderProps> = ({ currentBrand, onOpenAuth }) => {
+export const HeroSlider: React.FC<HeroSliderProps> = ({ onOpenAuth }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const isAxion = currentBrand === 'axion';
 
   const slides = [
     {
@@ -37,9 +32,7 @@ export const HeroSlider: React.FC<HeroSliderProps> = ({ currentBrand, onOpenAuth
       ctaText: 'Quero reduzir o retrabalho',
       statNumber: '85%',
       statLabel: 'Economia de Tempo no RH',
-      cardIcon: Clock,
-      gradient: 'from-emerald-500 via-emerald-600 to-vr-darker',
-      bgClass: 'bg-emerald-950/40 border-emerald-500/20'
+      cardIcon: Clock
     },
     {
       id: 'beneficios-pat',
@@ -50,9 +43,7 @@ export const HeroSlider: React.FC<HeroSliderProps> = ({ currentBrand, onOpenAuth
       ctaText: 'Quero economizar com benefícios',
       statNumber: '4%',
       statLabel: 'Dedução direta no Imposto de Renda (PAT)',
-      cardIcon: Percent,
-      gradient: 'from-vr-primary via-emerald-500 to-teal-800',
-      bgClass: 'bg-emerald-900/40 border-vr-primary/20'
+      cardIcon: Percent
     },
     {
       id: 'cufa-impacto',
@@ -63,13 +54,10 @@ export const HeroSlider: React.FC<HeroSliderProps> = ({ currentBrand, onOpenAuth
       ctaText: 'Conhecer projetos sociais',
       statNumber: '100%',
       statLabel: 'Transparência no repasse social',
-      cardIcon: HeartHandshake,
-      gradient: 'from-teal-600 via-emerald-700 to-slate-900',
-      bgClass: 'bg-teal-950/40 border-teal-500/20'
+      cardIcon: HeartHandshake
     }
   ];
 
-  // Auto advance slides
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
@@ -82,11 +70,7 @@ export const HeroSlider: React.FC<HeroSliderProps> = ({ currentBrand, onOpenAuth
   return (
     <section className="relative my-6 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       {/* Main Slider Container */}
-      <div className={`relative overflow-hidden rounded-3xl min-h-[580px] lg:min-h-[520px] transition-colors duration-500 shadow-2xl border ${
-        isAxion 
-          ? 'bg-axion-surface1 border-axion-border text-white' 
-          : 'bg-gradient-to-br from-vr-darker via-emerald-950 to-slate-950 border-emerald-900/40 text-white'
-      }`}>
+      <div className="relative overflow-hidden rounded-3xl min-h-[580px] lg:min-h-[520px] bg-gradient-to-br from-vr-darker via-emerald-950 to-slate-950 border border-emerald-900/40 text-white shadow-2xl transition-colors duration-500">
         
         {/* Decorative Background Geometry */}
         <div className="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-vr-primary/10 rounded-full blur-3xl pointer-events-none" />
@@ -154,22 +138,18 @@ export const HeroSlider: React.FC<HeroSliderProps> = ({ currentBrand, onOpenAuth
 
           </div>
 
-          {/* Right Column: Visual Feature Showcase Container */}
+          {/* Right Column: VR App Phone Mockup */}
           <div className="lg:col-span-5 relative">
             <div className="relative mx-auto w-full max-w-md bg-slate-900/60 rounded-3xl p-6 border border-white/10 shadow-2xl backdrop-blur-xl space-y-4">
               
-              {/* Smartphone / Interactive Mockup Header */}
               <div className="flex justify-between items-center pb-3 border-b border-white/10 text-xs text-slate-400">
                 <div className="flex items-center gap-2">
                   <div className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
-                  <span className="font-semibold text-slate-300">
-                    {isAxion ? 'AXION SSO Runtime' : 'Portal VR Benefícios'}
-                  </span>
+                  <span className="font-semibold text-slate-300">Portal VR Benefícios</span>
                 </div>
                 <span className="font-mono text-[10px] text-slate-500">v4.8-LIVE</span>
               </div>
 
-              {/* Dynamic Feature Card inside Mockup */}
               <div className="bg-slate-950/80 rounded-2xl p-5 border border-white/5 space-y-4">
                 <div className="flex justify-between items-start">
                   <div>
@@ -181,7 +161,6 @@ export const HeroSlider: React.FC<HeroSliderProps> = ({ currentBrand, onOpenAuth
                   </div>
                 </div>
 
-                {/* Quick Benefit Badges */}
                 <div className="grid grid-cols-2 gap-2 text-xs">
                   <div className="bg-slate-900 p-2.5 rounded-xl border border-white/5 flex items-center gap-2">
                     <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
@@ -200,7 +179,6 @@ export const HeroSlider: React.FC<HeroSliderProps> = ({ currentBrand, onOpenAuth
                   </div>
                 </div>
 
-                {/* Action Trigger Card */}
                 <div className="bg-emerald-950/50 rounded-xl p-3 border border-emerald-500/30 flex justify-between items-center text-xs">
                   <div className="flex items-center gap-2">
                     <QrCode className="w-4 h-4 text-vr-primary" />
@@ -210,7 +188,6 @@ export const HeroSlider: React.FC<HeroSliderProps> = ({ currentBrand, onOpenAuth
                 </div>
               </div>
 
-              {/* Floating Testimonial Pill */}
               <div className="bg-slate-900/90 rounded-xl p-3 border border-white/10 text-xs flex items-center gap-3">
                 <div className="w-8 h-8 rounded-full bg-emerald-600 flex items-center justify-center text-white font-bold text-xs">
                   RH

@@ -5,24 +5,12 @@ import {
   ShieldCheck, 
   Lock, 
   Award, 
-  Heart, 
-  Sparkles, 
-  ArrowUpRight 
+  Sparkles 
 } from 'lucide-react';
 
-interface FooterProps {
-  currentBrand: 'vr' | 'axion';
-}
-
-export const Footer: React.FC<FooterProps> = ({ currentBrand }) => {
-  const isAxion = currentBrand === 'axion';
-
+export const Footer: React.FC = () => {
   return (
-    <footer className={`border-t transition-colors duration-300 ${
-      isAxion 
-        ? 'bg-axion-bg border-axion-border text-slate-400' 
-        : 'bg-slate-900 border-slate-800 text-slate-400'
-    }`}>
+    <footer className="border-t bg-slate-900 border-slate-800 text-slate-400">
       {/* Regulatory & Compliance Banner */}
       <div className="border-b border-white/5 bg-slate-950/40 py-6 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-xs">
@@ -53,23 +41,21 @@ export const Footer: React.FC<FooterProps> = ({ currentBrand }) => {
         <div className="space-y-4">
           <div className="flex items-center gap-2">
             <div className="w-8 h-8 rounded-xl bg-vr-primary flex items-center justify-center text-slate-950 font-black text-sm">
-              {isAxion ? 'A' : 'VR'}
+              VR
             </div>
             <span className="font-extrabold text-sm text-white tracking-tight">
-              {isAxion ? 'AXION ENTERPRISE' : 'VR BENEFÍCIOS'}
+              VR BENEFÍCIOS
             </span>
           </div>
 
           <p className="text-slate-400 leading-relaxed">
-            {isAxion 
-              ? 'Plataforma industrial de UI/UX e ecossistema de software autônomo da AXION Enterprise.'
-              : 'O ecossistema mais completo do mercado para gestão de pessoas, RH e benefícios corporativos.'}
+            O ecossistema mais completo do mercado para gestão de pessoas, RH e benefícios corporativos.
           </p>
 
           <div className="pt-2">
             <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-[10px] font-mono">
               <Sparkles className="w-3 h-3" />
-              <span>Monorepo Canvas Reference</span>
+              <span>Portal de Gestão de Pessoas</span>
             </span>
           </div>
         </div>
@@ -98,11 +84,11 @@ export const Footer: React.FC<FooterProps> = ({ currentBrand }) => {
           </ul>
         </div>
 
-        {/* Col 4: Institucional & Portfólio */}
+        {/* Col 4: Institucional */}
         <div>
           <h4 className="font-bold text-white uppercase tracking-wider text-xs mb-4">Institucional</h4>
           <ul className="space-y-2.5">
-            <li><a href="#" className="hover:text-vr-primary transition">Sobre a VR / AXION</a></li>
+            <li><a href="#" className="hover:text-vr-primary transition">Sobre a VR Benefícios</a></li>
             <li><a href="#" className="hover:text-vr-primary transition">Programa Troco Solidário CUFA</a></li>
             <li><a href="#" className="hover:text-vr-primary transition">Política de Privacidade</a></li>
             <li><a href="#" className="hover:text-vr-primary transition">Termos de Uso do Portal</a></li>
@@ -115,11 +101,10 @@ export const Footer: React.FC<FooterProps> = ({ currentBrand }) => {
       <div className="border-t border-white/5 py-6 px-4 text-center text-xs text-slate-500">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
           <div>
-            © {new Date().getFullYear()} {isAxion ? 'AXION Enterprise' : 'VR Benefícios'}. Todos os direitos reservados.
+            © {new Date().getFullYear()} VR Benefícios. Todos os direitos reservados.
           </div>
-          <div className="flex items-center gap-1">
-            <span>Desenvolvido para portfólio & reutilização de UI/UX pela</span>
-            <strong className="text-slate-300">AXION Enterprise</strong>
+          <div className="text-slate-400">
+            VR, soluções para gestão de pessoas em um só lugar.
           </div>
         </div>
       </div>

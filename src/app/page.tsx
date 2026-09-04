@@ -11,13 +11,11 @@ import {
   UserCheck, 
   Clock, 
   ShieldCheck, 
-  Sparkles, 
   ArrowRight,
   HeartHandshake
 } from 'lucide-react';
 
 export default function Home() {
-  const [currentBrand, setCurrentBrand] = useState<'vr' | 'axion'>('vr');
   const [authModalOpen, setAuthModalOpen] = useState(false);
   const [authRole, setAuthRole] = useState<'trabalhador' | 'empresa' | 'estabelecimento'>('empresa');
 
@@ -26,16 +24,10 @@ export default function Home() {
     setAuthModalOpen(true);
   };
 
-  const isAxion = currentBrand === 'axion';
-
   return (
-    <div className={`min-h-screen transition-colors duration-300 ${
-      isAxion ? 'bg-axion-bg text-white' : 'bg-slate-50 text-slate-900'
-    }`}>
+    <div className="min-h-screen bg-slate-50 text-slate-900">
       {/* Header */}
       <Header 
-        currentBrand={currentBrand}
-        onToggleBrand={() => setCurrentBrand(isAxion ? 'vr' : 'axion')}
         onOpenAuth={handleOpenAuth}
       />
 
@@ -43,52 +35,51 @@ export default function Home() {
       <main>
         {/* Hero Slider */}
         <HeroSlider 
-          currentBrand={currentBrand}
           onOpenAuth={handleOpenAuth}
         />
 
         {/* Feature Highlights Band */}
-        <section className="py-12 border-y border-slate-200/60 dark:border-axion-border bg-white dark:bg-axion-surface1/60">
+        <section className="py-12 border-y border-slate-200/60 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               
-              <div className="flex items-center gap-4 p-4 rounded-2xl bg-slate-50 dark:bg-axion-surface2 border border-slate-100 dark:border-axion-border">
-                <div className="w-12 h-12 rounded-xl bg-emerald-500/10 text-vr-primary flex items-center justify-center font-bold">
+              <div className="flex items-center gap-4 p-4 rounded-2xl bg-slate-50 border border-slate-100">
+                <div className="w-12 h-12 rounded-xl bg-emerald-500/10 text-vr-green flex items-center justify-center font-bold">
                   <Clock className="w-6 h-6" />
                 </div>
                 <div>
-                  <div className="font-extrabold text-sm">Crédito Rápido PIX</div>
-                  <div className="text-xs text-slate-500 dark:text-slate-400">Recarga em minutos</div>
+                  <div className="font-extrabold text-sm text-slate-900">Crédito Rápido PIX</div>
+                  <div className="text-xs text-slate-500">Recarga em minutos</div>
                 </div>
               </div>
 
-              <div className="flex items-center gap-4 p-4 rounded-2xl bg-slate-50 dark:bg-axion-surface2 border border-slate-100 dark:border-axion-border">
-                <div className="w-12 h-12 rounded-xl bg-emerald-500/10 text-vr-primary flex items-center justify-center font-bold">
+              <div className="flex items-center gap-4 p-4 rounded-2xl bg-slate-50 border border-slate-100">
+                <div className="w-12 h-12 rounded-xl bg-emerald-500/10 text-vr-green flex items-center justify-center font-bold">
                   <ShieldCheck className="w-6 h-6" />
                 </div>
                 <div>
-                  <div className="font-extrabold text-sm">Segurança Jurídica</div>
-                  <div className="text-xs text-slate-500 dark:text-slate-400">100% de conformidade PAT</div>
+                  <div className="font-extrabold text-sm text-slate-900">Segurança Jurídica</div>
+                  <div className="text-xs text-slate-500">100% de conformidade PAT</div>
                 </div>
               </div>
 
-              <div className="flex items-center gap-4 p-4 rounded-2xl bg-slate-50 dark:bg-axion-surface2 border border-slate-100 dark:border-axion-border">
-                <div className="w-12 h-12 rounded-xl bg-emerald-500/10 text-vr-primary flex items-center justify-center font-bold">
+              <div className="flex items-center gap-4 p-4 rounded-2xl bg-slate-50 border border-slate-100">
+                <div className="w-12 h-12 rounded-xl bg-emerald-500/10 text-vr-green flex items-center justify-center font-bold">
                   <UserCheck className="w-6 h-6" />
                 </div>
                 <div>
-                  <div className="font-extrabold text-sm">Gestão Unificada</div>
-                  <div className="text-xs text-slate-500 dark:text-slate-400">Holerite e ponto em um app</div>
+                  <div className="font-extrabold text-sm text-slate-900">Gestão Unificada</div>
+                  <div className="text-xs text-slate-500">Holerite e ponto em um app</div>
                 </div>
               </div>
 
-              <div className="flex items-center gap-4 p-4 rounded-2xl bg-slate-50 dark:bg-axion-surface2 border border-slate-100 dark:border-axion-border">
-                <div className="w-12 h-12 rounded-xl bg-emerald-500/10 text-vr-primary flex items-center justify-center font-bold">
+              <div className="flex items-center gap-4 p-4 rounded-2xl bg-slate-50 border border-slate-100">
+                <div className="w-12 h-12 rounded-xl bg-emerald-500/10 text-vr-green flex items-center justify-center font-bold">
                   <Building2 className="w-6 h-6" />
                 </div>
                 <div>
-                  <div className="font-extrabold text-sm">+50 Mil Empresas</div>
-                  <div className="text-xs text-slate-500 dark:text-slate-400">Rede corporativa ativada</div>
+                  <div className="font-extrabold text-sm text-slate-900">+50 Mil Empresas</div>
+                  <div className="text-xs text-slate-500">Rede corporativa ativada</div>
                 </div>
               </div>
 
@@ -98,7 +89,6 @@ export default function Home() {
 
         {/* Product & Solutions Grid */}
         <SolutionsGrid 
-          currentBrand={currentBrand}
           onOpenAuth={handleOpenAuth}
         />
 
@@ -149,14 +139,13 @@ export default function Home() {
       </main>
 
       {/* Footer */}
-      <Footer currentBrand={currentBrand} />
+      <Footer />
 
       {/* Authentication Modal */}
       <SsoLoginModal 
         isOpen={authModalOpen}
         onClose={() => setAuthModalOpen(false)}
         initialRole={authRole}
-        currentBrand={currentBrand}
       />
     </div>
   );
