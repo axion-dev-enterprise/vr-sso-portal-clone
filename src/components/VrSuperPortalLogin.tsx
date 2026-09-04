@@ -25,7 +25,7 @@ export const VrSuperPortalLogin: React.FC = () => {
     setIsSubmitting(true);
     setTimeout(() => {
       setIsSubmitting(false);
-      alert('Login validado com sucesso! Redirecionando...');
+      alert('Login validado com sucesso! Redirecionando para o SuperPortal VR...');
     }, 1000);
   };
 
@@ -34,31 +34,21 @@ export const VrSuperPortalLogin: React.FC = () => {
   return (
     <div className="h-screen w-screen overflow-hidden flex flex-col bg-white font-sans text-slate-800 select-none">
       
-      {/* ================= CORPO PRINCIPAL: DIVISÃO EXATA EM 2 COLUNAS ================= */}
+      {/* ================= CORPO PRINCIPAL: DIVISÃO EM 2 COLUNAS ================= */}
       <div className="flex-1 flex overflow-hidden">
         
-        {/* COLUNA ESQUERDA: FORMULÁRIO DE ACESSO (Exatamente ~30% a 32% de largura) */}
+        {/* COLUNA ESQUERDA: FORMULÁRIO DE ACESSO */}
         <div className="w-full md:w-[32%] lg:w-[30%] min-w-[340px] max-w-[420px] shrink-0 bg-white flex flex-col justify-center px-8 sm:px-10 lg:px-12 z-20">
           
           <div className="w-full max-w-[320px] mx-auto space-y-7">
             
-            {/* LOGO OFICIAL VR + "facilita a vida" */}
-            <div className="flex items-center gap-3">
-              <div className="w-12 h-10 bg-[#00ba20] rounded-xl flex items-center justify-center p-1.5 shadow-xs shrink-0">
-                <svg viewBox="0 0 48 38" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
-                  <path 
-                    d="M6 8 L18 30 L30 8 Q36 2 42 7 Q46 12 43 18 L38 24 M30 8 Q35 14 42 14" 
-                    stroke="white" 
-                    strokeWidth="5" 
-                    strokeLinecap="round" 
-                    strokeLinejoin="round" 
-                  />
-                </svg>
-              </div>
-
-              <span className="text-[#1e293b] font-bold text-[16px] tracking-tight">
-                facilita a vida
-              </span>
+            {/* LOGO REAL OFICIAL VR + "facilita a vida" */}
+            <div className="flex items-center">
+              <img 
+                src="/vr_real_logo.png" 
+                alt="VR facilita a vida" 
+                className="h-10 w-auto object-contain"
+              />
             </div>
 
             {/* Texto de Instrução */}
@@ -82,7 +72,7 @@ export const VrSuperPortalLogin: React.FC = () => {
                 />
               </div>
 
-              {/* Campo 2: Senha* com toggle de exibição */}
+              {/* Campo 2: Senha* com botão de revelar */}
               <div className="relative">
                 <input
                   type={showPassword ? 'text' : 'password'}
@@ -102,7 +92,7 @@ export const VrSuperPortalLogin: React.FC = () => {
                 </button>
               </div>
 
-              {/* Botão Continuar (Pill cinza quando inativo, verde quando ativo) */}
+              {/* Botão Continuar */}
               <div className="pt-2">
                 <button
                   type="submit"
@@ -138,19 +128,14 @@ export const VrSuperPortalLogin: React.FC = () => {
 
         </div>
 
-        {/* COLUNA DIREITA: BANNER SUPERPORTAL VR COM ENQUADRAMENTO EXATO */}
+        {/* COLUNA DIREITA: BANNER SUPERPORTAL VR */}
         <div className="hidden md:flex flex-1 relative bg-[#00ba20] flex-col justify-between overflow-hidden">
           
           {/* MOLDURA CONTÍNUA COM O RECORTE INTEGRADO DA PÍLULA */}
           <div className="absolute inset-0 pointer-events-none z-10 p-6 lg:p-8">
             <div className="relative w-full h-full">
-              {/* Borda principal conectada */}
               <div className="w-full h-full rounded-[28px] border-2 border-white/40 border-t-transparent" />
-              
-              {/* Linha superior esquerda */}
               <div className="absolute top-0 left-0 w-8 h-[2px] bg-white/40 rounded-tl-[28px]" />
-              
-              {/* Linha superior direita */}
               <div className="absolute top-0 left-[215px] right-0 h-[2px] bg-white/40" />
             </div>
           </div>
@@ -158,7 +143,7 @@ export const VrSuperPortalLogin: React.FC = () => {
           {/* ÁREA SUPERIOR: TÍTULOS E MÓDULOS */}
           <div className="relative z-20 pt-6 lg:pt-8 pl-8 lg:pl-10 pr-6 space-y-6 lg:space-y-7">
             
-            {/* Pílula SuperPortal VR (exatamente encaixada no recorte da moldura) */}
+            {/* Pílula SuperPortal VR */}
             <div className="inline-flex items-center gap-2 px-5 py-1.5 rounded-full border-2 border-white/70 bg-transparent text-xs font-bold text-white tracking-wide shadow-xs">
               <span>SuperPortal VR</span>
               <Search className="w-3.5 h-3.5 text-white stroke-[2.5]" />
@@ -183,7 +168,7 @@ export const VrSuperPortalLogin: React.FC = () => {
               </div>
             </div>
 
-            {/* Linha Horizontal de Módulos (Ícones Lineares e Textos) */}
+            {/* Linha Horizontal de Módulos */}
             <div className="flex flex-wrap items-center gap-x-5 lg:gap-x-7 gap-y-2 text-xs lg:text-[13px] font-semibold text-white">
               <div className="flex items-center gap-1.5">
                 <Laptop className="w-4 h-4 text-white stroke-[2]" />
@@ -209,10 +194,10 @@ export const VrSuperPortalLogin: React.FC = () => {
 
           </div>
 
-          {/* ÁREA INFERIOR: SÍMBOLOS +++ E IMAGEM SANGRADA ATÉ A BORDA */}
+          {/* ÁREA INFERIOR: SÍMBOLOS +++ E IMAGEM SANGRADA */}
           <div className="relative z-20 flex items-end justify-between w-full">
             
-            {/* Três cruzes contornadas em verde neon (+ + +) com fundo escuro */}
+            {/* Três cruzes contornadas em verde neon (+ + +) */}
             <div className="flex items-center gap-2 pl-8 lg:pl-10 pb-8 z-30">
               {[1, 2, 3].map((idx) => (
                 <div 
@@ -232,7 +217,7 @@ export const VrSuperPortalLogin: React.FC = () => {
               ))}
             </div>
 
-            {/* Imagem Real da Campanha ocupando todo o quadrante inferior direito */}
+            {/* Imagem Real da Campanha */}
             <div className="relative w-full max-w-[580px] lg:max-w-[680px] xl:max-w-[760px] h-[340px] lg:h-[400px] xl:h-[440px] overflow-hidden self-end">
               <img 
                 src="/vr_portal_woman.jpg" 
@@ -247,7 +232,6 @@ export const VrSuperPortalLogin: React.FC = () => {
 
           {/* BOTÃO FLUTUANTE DE ACESSIBILIDADE LATERAL AZUL COBALTO */}
           <div className="absolute right-0 top-1/2 -translate-y-1/2 z-40 flex flex-col bg-[#0047ba] rounded-l-lg shadow-xl overflow-hidden">
-            {/* Ícone de Acessibilidade */}
             <button 
               className="w-8 h-10 flex items-center justify-center text-white hover:bg-[#003894] transition border-b border-white/20"
               title="Acessibilidade"
@@ -258,7 +242,6 @@ export const VrSuperPortalLogin: React.FC = () => {
               </svg>
             </button>
             
-            {/* Ícone de Mãos do VLibras */}
             <button 
               className="w-8 h-10 flex items-center justify-center text-white hover:bg-[#003894] transition"
               title="VLibras - Tradução de Língua Brasileira de Sinais"
@@ -273,7 +256,7 @@ export const VrSuperPortalLogin: React.FC = () => {
 
       </div>
 
-      {/* ================= RODAPÉ INFERIOR VERDE MENTA PASTEL EXATO ================= */}
+      {/* ================= RODAPÉ INFERIOR VERDE MENTA PASTEL ================= */}
       <footer className="w-full h-11 bg-[#d4ffd0] border-t border-[#bbf7b6] px-6 sm:px-10 flex items-center justify-between text-xs text-[#0a481d] font-normal shrink-0 z-30">
         <div>
           © 2026 VR - Todos os direitos reservados
